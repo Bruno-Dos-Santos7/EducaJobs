@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Empresarial</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #2e7d32; 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      color: #fff;
+    }
+
+    .login-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.5em;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px; 
+      font-weight: bold;
+    }
+
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+
+    .form-group input:focus {
+      outline: 2px solid #fff;
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .checkbox-group input {
+      margin-right: 10px;
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 12px;
+      background-color: #1b5e20;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .login-btn:hover {
+      background-color: #388e3c;
+    }
+
+    .links {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .links a {
+      color: #fff;
+      text-decoration: underline;
+      font-size: 0.9em;
+    }
+
+    /* Responsividade */
+    @media (max-width: 480px) {
+      .login-container {
+        padding: 20px;
+      }
+      .login-container h2 {
+        font-size: 1.2em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login Empresarial</h2>
+    <form>
+      <div class="form-group">
+        <label for="email">Email corporativo</label>
+        <input type="email" id="email" placeholder="Digite seu email corporativo" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Senha</label>
+        <input type="password" id="password" placeholder="Digite sua senha" required>
+      </div>
+
+      <div class="form-group">
+        <label for="mfa">Código MFA</label>
+        <input type="text" id="mfa" placeholder="Digite o código de verificação">
+      </div>
+
+      <div class="form-group">
+        <label for="dominio">Domínio/Unidade</label>
+        <select id="dominio">
+          <option>Selecione...</option>
+          <option>Empresa.com</option>
+          <option>IFPLC</option>
+          <option>CPN</option>
+          <option>CLN</option>
+          <option>Cimentos de Mocambique</option>
+
+
+        </select>
+      </div>
+
+      <div class="checkbox-group">
+        <input type="checkbox" id="lembrar">
+        <label for="lembrar">Lembrar dispositivo confiável</label>
+      </div>
+
+      <button type="submit" class="login-btn">Entrar</button>
+
+      <div class="links">
+        <a href="#">Esqueci minha senha</a> | 
+        <a href="#">Problemas com MFA</a>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

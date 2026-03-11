@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bruno Dos Santos | Desenvolvedor Web</title>
+    <!-- Font Awesome 6 (versão mais recente e estável via CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+            --primary: #0069d9;
+            --primary-dark: #0056b3;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--light);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            text-align: center;
+            padding: 80px 20px 60px;
+        }
+
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 8px;
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            opacity: 0.95;
+        }
+
+        section {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 3px;
+            background: var(--primary);
+            bottom: -10px;
+            left: 0;
+        }
+
+        .skills {
+            text-align: center;
+        }
+
+        .skills ul {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            list-style: none;
+            margin: 25px 0;
+        }
+
+        .skills li {
+            background: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            border: 1px solid #e0e0e0;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin: 30px 0;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 30px 40px;
+        }
+
+        .project-body {
+            padding: 35px 40px;
+        }
+
+        .project-title {
+            font-size: 2.1rem;
+            margin-bottom: 15px;
+        }
+
+        .project-technologies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .tech-tag {
+            background: #e9ecef;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--primary);
+            color: white;
+            padding: 16px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-top: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,105,217,0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0,105,217,0.4);
+        }
+
+        .social-section {
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--gray);
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .social-link i {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .social-link span {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: var(--dark);
+            color: white;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.3rem; }
+            .social-links { gap: 30px; }
+            .social-link i { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <!-- Substitua pelo caminho da sua foto real -->
+        <img src="sua-foto-perfil.jpg" alt="Bruno Dos Santos" class="profile-img">
+        <h1>Bruno Dos Santos</h1>
+        <p class="tagline">Desenvolvedor Web | HTML • CSS • JavaScript</p>
+    </header>
+
+    <section class="skills">
+        <h2>Tecnologias</h2>
+        <ul>
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript (ES6+)</li>
+        </ul>
+        <p style="text-align:center; max-width:700px; margin:25px auto; font-size:1.1rem;">
+            Crio soluções modernas, responsivas e focadas no usuário, com atenção especial à experiência e performance.
+        </p>
+    </section>
+
+    <section>
+        <h2>Projeto em Destaque</h2>
+        
+        <div class="project-card">
+            <div class="project-header">
+                <h3 class="project-title">Educa Jobs</h3>
+            </div>
+            <div class="project-body">
+                <p>
+                    Plataforma dedicada à divulgação de vagas de emprego e cursos (pagos e gratuitos), com foco especial em 
+                    <strong>oportunidades para pessoas sem experiência profissional ou sem formação académica/certificados</strong>. 
+                    Promovendo inclusão e acesso ao mercado de trabalho.
+                </p>
+
+                <div class="project-technologies">
+                    <span class="tech-tag">HTML5</span>
+                    <span class="tech-tag">CSS3</span>
+                    <span class="tech-tag">JavaScript</span>
+                </div>
+
+                <!-- Substitua pelo LINK REAL do seu projeto -->
+                <a href="https://educajobs.vercel.app" class="btn-primary" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-external-link-alt"></i> Ver Projeto / Acessar Educa Jobs
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="social-section">
+        <h2>Contactos & Redes Sociais</h2>
+        <div class="social-links">
+            <!-- Substitua pelo seu número real (ex: +258841234567) -->
+            <a href="https://wa.me/+258841234567" target="_blank" class="social-link" aria-label="WhatsApp">
+                <i class="fab fa-whatsapp" style="color: #25D366;"></i>
+                <span>WhatsApp</span>
+            </a>
+
+            <!-- Substitua pelo seu username real -->
+            <a href="https://instagram.com/seuusername" target="_blank" class="social-link" aria-label="Instagram">
+                <i class="fab fa-instagram" style="color: #E1306C;"></i>
+                <span>Instagram</span>
+            </a>
+
+            <!-- Substitua pelo seu username real -->
+            <a href="https://github.com/seuusername" target="_blank" class="social-link" aria-label="GitHub">
+                <i class="fab fa-github" style="color: #333;"></i>
+                <span>GitHub</span>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Bruno Dos Santos • Desenvolvedor Web</p>
+    </footer>
+
+</body>
+</html>

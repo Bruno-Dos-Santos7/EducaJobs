@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Oportunidades - Sem Experiência</title>
+    <style>
+        /* Estilos Base e Cores da Imagem */
+        :root {
+            --verde-principal: #122b44;
+            --verde-fundo-badge: #e8f5e9;
+            --cinza-texto: #666;
+            --sombra: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+    
+
+        /* BARRA DE NAVEGAÇÃO*/
+        header {
+            background-color: var(--verde-principal);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            
+            text-decoration: none;
+            margin: 0 25px;
+            font-weight: bold;
+            font-size: 16px;
+            transition: opacity 0.2s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+            text-decoration: none;
+            color: aqua;
+        }
+        
+
+        /* TÍTULOS */
+        .header-secao {
+            text-align: center;
+            padding: 40px 20px 20px;
+        }
+
+        .header-secao h1 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .header-secao p {
+            color: var(--cinza-texto);
+            font-size: 16px;
+        }
+
+        /* GRID DE CARDS */
+        .container-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        /* O CARD (Seguindo a estrutura da captura de ecrã) */
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--sombra);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .vaga-titulo {
+            color: var(--verde-principal);
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0 0 12px 0;
+        }
+
+        .vaga-desc {
+            color: var(--cinza-texto);
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            min-height: 42px;
+        }
+
+        /* Etiquetas (Badges) */
+        .badge-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .badge-status {
+            background-color: var(--verde-fundo-badge);
+            color: var(--verde-principal);
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 12px;
+            width: fit-content;
+        }
+
+        .badge-requisito {
+            color: #d32f2f; /* Vermelho suave para destaque de requisito */
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .empresa-nome {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        /* BOTÃO */
+        .btn-candidatar {
+            background-color: var(--verde-principal);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            width: fit-content;
+            text-transform: none;
+        }
+
+        .btn-candidatar:hover {
+            background-color: #124271;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="Pagina inicial.html">Início</a>
+            <a href="empregos.html">Empregos</a>
+            <a href="cursos.html">Cursos</a>
+            <a href="perfil.html">Meu Perfil</a>
+        </nav>
+    </header>
+
+    <div class="header-secao">
+        <h1>Oportunidades de Carreira</h1>
+        <p>Vagas exclusivas para quem busca o primeiro emprego ou transição de carreira</p>
+    </div>
+
+    <div class="container-grid">
+        
+        <div class="card">
+            <h2 class="vaga-titulo">Atendente Jr</h2>
+            <p class="vaga-desc">Suporte no atendimento ao público e organização de documentos.</p>
+            <div class="badge-container">
+                <span class="badge-status">Sem Experiência</span>
+                <span class="badge-requisito">Ensino Médio Concluído</span>
+            </div>
+            <p class="empresa-nome">Escola de Tecnologia h2n</p>
+            <button class="btn-candidatar">Inscrever-se Agora</button>
+        </div>
+
+        <div class="card">
+            <h2 class="vaga-titulo">Estagiário TI</h2>
+            <p class="vaga-desc">Auxílio na manutenção de redes e suporte básico a computadores.</p>
+            <div class="badge-container">
+                <span class="badge-status">Estágio Curricular</span>
+                <span class="badge-requisito">Técnico ou Superior em Curso</span>
+            </div>
+            <p class="empresa-nome">Global Solutions</p>
+            <button class="btn-candidatar">Aderir Agora</button>
+        </div>
+
+        <div class="card">
+            <h2 class="vaga-titulo">Auxiliar Administrativo</h2>
+            <p class="vaga-desc">Entrada de dados no sistema e atendimento telefónico.</p>
+            <div class="badge-container">
+                <span class="badge-status">Jovem Aprendiz</span>
+                <span class="badge-requisito">Ensino Médio Concluído</span>
+            </div>
+            <p class="empresa-nome">Logística do Norte</p>
+            <button class="btn-candidatar">Inscrever-se Agora</button>
+        </div>
+
+        <div class="card">
+            <h2 class="vaga-titulo">Trainee Mecânica</h2>
+            <p class="vaga-desc">Aprendizado prático em manutenção de motores industriais.</p>
+            <div class="badge-container">
+                <span class="badge-status">Sem Experiência</span>
+                <span class="badge-requisito">Curso Técnico Profissional</span>
+            </div>
+            <p class="empresa-nome">Fábrica IFPLC</p>
+            <button class="btn-candidatar">Ver Detalhes</button>
+        </div>
+
+        <div class="card">
+            <h2 class="vaga-titulo">Recepcionista</h2>
+            <p class="vaga-desc">Gestão de agenda e recepção de clientes em clínica médica.</p>
+            <div class="badge-container">
+                <span class="badge-status">Primeiro Emprego</span>
+                <span class="badge-requisito">Ensino Médio Concluído</span>
+            </div>
+            <p class="empresa-nome">Clínica Santa Maria</p>
+            <button class="btn-candidatar">Inscrever-se Agora</button>
+        </div>
+
+        <div class="card">
+            <h2 class="vaga-titulo">Assistente Comercial</h2>
+            <p class="vaga-desc">Apoio na elaboração de propostas e contacto com clientes.</p>
+            <div class="badge-container">
+                <span class="badge-status">Sem Experiência</span>
+                <span class="badge-requisito">Ensino Médio ou Superior</span>
+            </div>
+            <p class="empresa-nome">Vendas Moçambique</p>
+            <button class="btn-candidatar">Aderir Agora</button>
+        </div>
+
+        <div class="card">
+            <h2 class="vaga-titulo">Apoio Logístico</h2>
+            <p class="vaga-desc">Controle de entrada e saída de materiais no armazém.</p>
+            <div class="badge-container">
+                <span class="badge-status">Vaga Júnior</span>
+                <span class="badge-requisito">Ensino Médio Concluído</span>
+            </div>
+            <p class="empresa-nome">Porto de Nacala</p>
+            <button class="btn-candidatar">Ver Detalhes</button>
+        </div>
+
+        <div class="card">
+            <h2 class="vaga-titulo">Estagiário Marketing</h2>
+            <p class="vaga-desc">Criação de conteúdos simples para redes sociais e blogs.</p>
+            <div class="badge-container">
+                <span class="badge-status">Estágio</span>
+                <span class="badge-requisito">Superior em Comunicação/MKT</span>
+            </div>
+            <p class="empresa-nome">Agência IGL</p>
+            <button class="btn-candidatar">Inscrever-se Agora</button>
+        </div>
+
+    </div>
+
+</body>
+</html>

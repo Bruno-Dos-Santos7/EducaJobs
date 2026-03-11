@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Conta</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            color: #1a2e4d;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 100%;
+            max-width: 400px;
+            background: rgba(6, 147, 241, 0.05);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            margin-bottom: 15px;
+            font-size: 1rem;
+            background-color: rgba(6, 147, 241, 0.099);
+        }
+        .btn {
+            background-color: #1a2e4d;
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .btn:hover {
+            transform: scale(1.02);
+            background-color: #111f33;
+            color: aqua;
+        }
+        .form-footer {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+        .form-footer a {
+            color: #1a2e4d;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .message {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        .error {
+            background-color: #f8d7da; /* vermelho suave */
+            color: #721c24;           /* texto vermelho escuro */
+            border: 1px solid #f5c6cb;
+        }
+        .success {
+            background-color: #d4edda; /* verde suave */
+            color: #155724;           /* texto verde escuro */
+            border: 1px solid #c3e6cb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Criar Conta</h1>
+        <form id="signupForm">
+            <input type="text" id="nome" placeholder="Nome completo" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="senha" placeholder="Senha" required>
+            <input type="password" id="confirmarSenha" placeholder="Confirmar senha" required>
+            <button type="submit" class="btn">Cadastrar</button>
+        </form>
+        <div id="mensagem"></div>
+        <div class="form-footer">
+            Já tem uma conta? <a href="pagina inicial.html">Entrar</a>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById("signupForm");
+        const mensagem = document.getElementById("mensagem");
+
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const nome = document.getElementById("nome").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const senha = document.getElementById("senha").value;
+            const confirmarSenha = document.getElementById("confirmarSenha").value;
+
+            mensagem.innerHTML = ""; // limpa mensagens anteriores
+
+            if (nome === "" || email === "" || senha === "" || confirmarSenha === "") {
+                mostrarMensagem("Por favor, preencha todos os campos obrigatórios.", "error");
+                return;
+            }
+
+            if (!email.includes("@") || !email.includes(".")) {
+                mostrarMensagem("Digite um email válido.", "error");
+                return;
+            }
+
+            if (senha.length < 6) {
+                mostrarMensagem("A senha deve ter pelo menos 6 caracteres.", "error");
+                return;
+            }
+
+            if (senha !== confirmarSenha) {
+                mostrarMensagem("As senhas não coincidem.", "error");
+                return;
+            }
+
+            mostrarMensagem("Conta criada com sucesso!", "success");
+            form.reset();
+        });
+
+        function mostrarMensagem(texto, tipo) {
+            mensagem.innerHTML = `<p class="message ${tipo}">${texto}</p>`;
+            setTimeout(() => {
+                mensagem.innerHTML = "";
+            }, 4000); // desaparece após 4 segundos
+        }
+    </script>
+</body>
+</html>

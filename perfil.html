@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil Profissional Editável</title>
+    <style>
+        :root {
+            --primary-green: #122b44;
+            --light-green: #e8f5e9;
+            --dark-green: #1b5e20;
+            --bg-gray: #f5f5f5;
+            --text-main: #333;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; }
+
+        body { background-color: var(--bg-gray); }
+
+        .navbar { background-color: var(--primary-green); padding: 15px 5%; display: flex; justify-content: center; gap: 30px; }
+        .navbar a { color: #fff; text-decoration: none; font-weight: bold; font-size: 14px; }
+        .navbar a:hover{ color: aqua; transition: 0.3 ease;}
+
+        .perfil-container { display: flex; justify-content: center; padding: 40px 20px; }
+
+        .perfil-card { 
+            background: #fff; 
+            border-radius: 12px; 
+            padding: 40px; 
+            max-width: 600px; 
+            width: 100%;
+            text-align: center; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        /* Foto e Upload */
+        .foto-wrapper { position: relative; width: 150px; height: 150px; margin: 0 auto 20px; cursor: pointer; }
+        .perfil-foto { 
+            width: 150px; height: 150px; border-radius: 50%; 
+            border: 4px solid var(--primary-green); object-fit: cover; 
+        }
+        .foto-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.4); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 12px; opacity: 0; transition: 0.3s;
+        }
+        .foto-wrapper:hover .foto-overlay { opacity: 1; }
+        #input-foto { display: none; }
+
+        /* Textos Editáveis */
+        .editable-input { 
+            width: 100%; border: 1px dashed #ccc; padding: 5px; 
+            margin-bottom: 5px; text-align: center; border-radius: 4px;
+        }
+        .perfil-nome { font-size: 26px; font-weight: bold; color: var(--text-main); margin-bottom: 5px; }
+        .perfil-cargo { font-size: 18px; color: var(--primary-green); margin-bottom: 15px; font-weight: 600; }
+        .perfil-resumo { font-size: 15px; color: #666; line-height: 1.6; margin-bottom: 25px; }
+
+        /* Habilidades */
+        .habilidades-titulo { color: var(--primary-green); margin-bottom: 15px; font-size: 18px; }
+        .lista-habilidades { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+        .hab-item { 
+            background: var(--light-green); padding: 10px; 
+            border-radius: 6px; display: flex; justify-content: center; align-items: center;
+            position: relative;
+        }
+        .btn-remove-hab { 
+            display: none; position: absolute; right: 10px; 
+            color: red; cursor: pointer; font-weight: bold; 
+        }
+
+        /* Controles */
+        .perfil-links { margin-top: 30px; display: flex; justify-content: center; gap: 20px; border-top: 1px solid #eee; padding-top: 20px; }
+        .perfil-links a { text-decoration: none; color: var(--primary-green); font-weight: bold; font-size: 14px; }
+
+        .admin-controls { margin-top: 20px; }
+        .btn-main {
+            background: var(--primary-green); color: white; border: none;
+            padding: 10px 25px; border-radius: 25px; cursor: pointer; font-weight: bold;
+            transition: 0.3s;
+        }
+        .btn-main:hover { background: var(--dark-green); }
+        .btn-add-hab { 
+            background: #eee; border: 1px solid #ccc; padding: 5px 10px; 
+            border-radius: 4px; cursor: pointer; margin-top: 10px; display: none;
+        }
+
+        /* Estado de Edição */
+        body.editing .btn-remove-hab, 
+        body.editing .btn-add-hab { display: inline-block; }
+        body.editing .perfil-links { display: none; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="pagina inicial.html">Início</a>
+        <a href="empregos.html">Empregos</a>
+        <a href="cursos.html">Cursos</a>
+        <a href="perfil.html">Meu Perfil</a>
+    </nav>
+
+    <section class="perfil-container">
+        <div class="perfil-card" id="card">
+            
+            <div class="foto-wrapper" onclick="document.getElementById('input-foto').click()">
+                <img src="https://via.placeholder.com/150" alt="Foto" class="perfil-foto" id="foto-display">
+                <div class="foto-overlay">Trocar Foto</div>
+                <input type="file" id="input-foto" accept="image/*" onchange="previewImagem(event)">
+            </div>
+
+            <div id="info-pessoal">
+                <h1 class="perfil-nome" id="nome">João Silva</h1>
+                <h2 class="perfil-cargo" id="cargo">Auxiliar de Logística</h2>
+                <p class="perfil-resumo" id="resumo">
+                    Profissional dedicado, com interesse em iniciar carreira na área de logística. 
+                    Experiência em cursos de Marketing Digital e Programação, buscando sempre aprender 
+                    e contribuir para o crescimento da empresa.
+                </p>
+            </div>
+
+            <div class="perfil-habilidades">
+                <h3 class="habilidades-titulo">Habilidades</h3>
+                <ul class="lista-habilidades" id="lista-hab">
+                    <li class="hab-item"><span>Organização e Planejamento</span><span class="btn-remove-hab" onclick="this.parentElement.remove()">×</span></li>
+                    <li class="hab-item"><span>Comunicação eficaz</span><span class="btn-remove-hab" onclick="this.parentElement.remove()">×</span></li>
+                    <li class="hab-item"><span>Conhecimentos básicos em Programação</span><span class="btn-remove-hab" onclick="this.parentElement.remove()">×</span></li>
+                    <li class="hab-item"><span>Marketing Digital</span><span class="btn-remove-hab" onclick="this.parentElement.remove()">×</span></li>
+                </ul>
+                <button class="btn-add-hab" onclick="addHabilidade()">+ Adicionar Habilidade</button>
+            </div>
+
+            <div class="perfil-links">
+                <a href="#">📄 Currículo</a>
+                <a href="#">✉️ Contato</a>
+                <a href="#">🔗 LinkedIn</a>
+            </div>
+
+            <div class="admin-controls">
+                <button class="btn-main" id="btn-edit" onclick="toggleEdit()">Editar Perfil</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let isEditing = false;
+
+        // Carregar dados ao iniciar
+        window.onload = () => {
+            const savedData = JSON.parse(localStorage.getItem('perfilData'));
+            if (savedData) {
+                document.getElementById('nome').innerText = savedData.nome;
+                document.getElementById('cargo').innerText = savedData.cargo;
+                document.getElementById('resumo').innerText = savedData.resumo;
+                document.getElementById('foto-display').src = savedData.foto || "https://via.placeholder.com/150";
+                document.getElementById('lista-hab').innerHTML = savedData.habilidades;
+            }
+        };
+
+        function toggleEdit() {
+            const btn = document.getElementById('btn-edit');
+            const nome = document.getElementById('nome');
+            const cargo = document.getElementById('cargo');
+            const resumo = document.getElementById('resumo');
+
+            if (!isEditing) {
+                // Entrar no modo edição
+                nome.contentEditable = true;
+                cargo.contentEditable = true;
+                resumo.contentEditable = true;
+                
+                document.body.classList.add('editing');
+                nome.classList.add('editable-input');
+                cargo.classList.add('editable-input');
+                resumo.classList.add('editable-input');
+                
+                btn.innerText = "Salvar Alterações";
+                btn.style.background = "#1976d2";
+                isEditing = true;
+            } else {
+                // Salvar e sair
+                saveData();
+                nome.contentEditable = false;
+                cargo.contentEditable = false;
+                resumo.contentEditable = false;
+                
+                document.body.classList.remove('editing');
+                nome.classList.remove('editable-input');
+                cargo.classList.remove('editable-input');
+                resumo.classList.remove('editable-input');
+                
+                btn.innerText = "Editar Perfil";
+                btn.style.background = "#2e7d32";
+                isEditing = false;
+            }
+        }
+
+        function addHabilidade() {
+            const nomeHab = prompt("Digite a nova habilidade:");
+            if (nomeHab) {
+                const li = document.createElement('li');
+                li.className = 'hab-item';
+                li.innerHTML = `<span>${nomeHab}</span><span class="btn-remove-hab" onclick="this.parentElement.remove()">×</span>`;
+                document.getElementById('lista-hab').appendChild(li);
+            }
+        }
+
+        function previewImagem(event) {
+            const reader = new FileReader();
+            reader.onload = function(){
+                const output = document.getElementById('foto-display');
+                output.src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+
+        function saveData() {
+            const data = {
+                nome: document.getElementById('nome').innerText,
+                cargo: document.getElementById('cargo').innerText,
+                resumo: document.getElementById('resumo').innerText,
+                foto: document.getElementById('foto-display').src,
+                habilidades: document.getElementById('lista-hab').innerHTML
+            };
+            localStorage.setItem('perfilData', JSON.stringify(data));
+        }
+    </script>
+</body>
+</html>

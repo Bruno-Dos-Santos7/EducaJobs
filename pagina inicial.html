@@ -1,0 +1,207 @@
+  <!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EducaJobs - Dashboard</title>
+    <style>
+        .dashboard-body {
+            background-color: #f4f7f6;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            color: black;
+        }
+
+        .logo { color: white; }
+
+        .navbar {
+            background-color: #122b44;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar a { color: white; text-decoration: none; margin: 0 15px; font-size: 15px; position: relative; padding: 5px 0; transition: color .5s ease; }
+        .navbar a:hover { color: aqua; }
+
+        .content { padding: 40px 5%; }
+
+        .grid-vagas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: white;
+            color: #333;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s;
+        }
+
+        .card:hover { transform: translateY(-5px); }
+
+        .card-image {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            background-color: #ddd;
+        }
+
+        .card-content-padding { padding: 20px; flex-grow: 1; }
+
+        .tag-verde { background: #4ca37b; color: white; padding: 5px 10px; border-radius: 20px; font-size: 11px; font-weight: bold; display: inline-block; margin-bottom: 10px; }
+        .tag-azul { background: #122b44; color: white; padding: 5px 10px; border-radius: 20px; font-size: 11px; font-weight: bold; display: inline-block; margin-bottom: 10px; }
+        
+        .stats { margin: 10px 0; font-size: 13px; color: #666; font-weight: bold; }
+        .empresa { font-size: 14px; color: #444; margin-bottom: 10px; }
+
+        .btn-entrar {
+            background-color: #122b44;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: auto;
+        }
+
+        .btn-entrar:hover { background-color: #1a3a5a; }
+
+        footer {
+            background: rgb(1, 49, 108);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body class="dashboard-body">
+
+    <nav class="navbar">
+        <div class="logo"><h2>EducaJobs</h2></div>
+        <div class="menu">
+            <a href="empregos.html">Empregos</a>
+            <a href="cursos.html">Cursos</a>
+            <a href="sem experiencia.html">Sem Experiência</a>
+            <a href="perfil.html" class="profile">Meu Perfil</a>
+        </div>
+
+        
+
+
+    </nav>
+
+    <main class="content">
+        <header class="welcome">
+            <h1>Bem-vindo de volta!</h1>
+            <p>Explore as novas oportunidades de carreira e aprendizado.</p>
+        </header>
+
+        <section class="grid-vagas">
+            
+            <div class="card">
+                <img src="analista fi.jpg.jpg" alt="Analista Financeiro" class="card-image">
+                <div class="card-content-padding">
+                    <span class="tag-verde">Full-time</span>
+                    <h3>Analista Financeiro</h3>
+                    <p class="empresa">Banco Comercial de Moçambique</p>
+                    <p>Gestão de fluxo de caixa e relatórios trimestrais.</p>
+                   <a href="Analista financeiro projecto.html"><button class="btn-entrar">Candidatar-se</button></a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="dev full.jpg.jpg" alt="Dev Fullstack" class="card-image">
+                <div class="card-content-padding">
+                    <span class="tag-verde">Remoto</span>
+                    <h3>Dev Fullstack Jr</h3>
+                    <p class="empresa">Escola de Tecnologia h2n</p>
+                    <p>Desenvolvimento de sistemas web escaláveis usando JS.</p>
+                     <a href="#"> <button class="btn-entrar">Ver Detalhes</button> </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="Tecnico agricola.jpg.jpg" alt="Técnico Agrícola" class="card-image">
+                <div class="card-content-padding">
+                    <span class="tag-verde">Presencial</span>
+                    <h3>Técnico Agrícola</h3>
+                    <p class="empresa">AgroNacala Lda</p>
+                    <p>Supervisão de culturas e sistemas de rega.</p>
+                   <a href="#"> <button class="btn-entrar">Ver Detalhes</button> </a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="RH.jpg.jpg" alt="Gestor de RH" class="card-image">
+                <div class="card-content-padding">
+                    <span class="tag-verde">Híbrido</span>
+                    <h3>Gestor de RH</h3>
+                    <p class="empresa">Soluções Corporativas</p>
+                    <p>Recrutamento, seleção e gestão de carreira.</p>
+                    <button class="btn-entrar">Candidatar-se</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="excel avancado.jpg.jpg" alt="Excel Avançado" class="card-image">
+                <div class="card-content-padding">
+                    <span class="tag-azul">Pago</span>
+                    <h3>Excel Avançado</h3>
+                    <p class="empresa">Domine fórmulas e dashboards.</p>
+                    <div class="stats">Certificado Incluso</div>
+                    <button class="btn-entrar">Ver Mais</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="gestor de projectos.jpg" alt="Gestão de Projetos" class="card-image">
+                <div class="card-content-padding">
+                    <span class="tag-azul">Pago</span>
+                    <h3>Gestão de Projetos</h3>
+                    <p class="empresa">Metodologias ágeis e tradicionais.</p>
+                    <div class="stats">Inscrições abertas</div>
+                    <button class="btn-entrar">Ver Detalhes</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="Ingles basico.jpg.jpg" alt="Inglês Básico" class="card-image">
+                <div class="card-content-padding">
+                    <span class="tag-azul">Gratuito</span>
+                    <h3>Inglês Básico</h3>
+                    <p class="empresa">IGL Nacala</p>
+                    <div class="stats">Crucial para sua carreira</div>
+                    <button class="btn-entrar">Aderir Agora</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="mecanica industrial.jpg.jpg" alt="Mecânica Industrial" class="card-image">
+                <div class="card-content-padding">
+                    <span class="tag-azul">Pago</span>
+                    <h3>Mecânica Industrial</h3>
+                    <p class="empresa">IFPLC</p>
+                    <div class="stats">Torne-se um técnico qualificado</div>
+                    <button class="btn-entrar">Ver Mais</button>
+                </div>
+            </div>
+
+        </section>
+    </main> 
+
+    <footer>
+        © 2026 EducaJobs - Todos os direitos reservados
+    </footer>
+</body>
+</html>

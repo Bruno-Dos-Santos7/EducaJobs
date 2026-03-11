@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursos Disponíveis</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        /* Barra de navegação */
+        .navbar {
+            background-color: #122b44;
+            padding: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s; /* Transição mais rápida e profissional */
+        }
+        .navbar a:hover {
+            color: aqua;
+        }
+
+        /* Container de cursos */
+        .cursos-container {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .cursos-container h1 {
+            margin-bottom: 30px;
+            color: #333;
+            font-size: 2.5rem;
+        }
+
+        /* Grid de cursos */
+        .cursos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        /* Card de curso */
+        .curso-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: left;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column; /* Faz o conteúdo empilhar verticalmente */
+            transition: transform 0.3s ease;
+            border: 1px solid #eee;
+        }
+        
+        .curso-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .curso-card h2 {
+            color: #122b44;
+            margin-bottom: 12px;
+            font-size: 1.4rem;
+        }
+        .curso-card p {
+            color: #555;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+        
+        /* Detalhes extras (Participantes/Instituição) */
+        .info-extra {
+            font-size: 0.9rem;
+            color: #333;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .curso-card .tag {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .curso-card.gratuito .tag {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+        .curso-card.pago .tag {
+            background-color: #ffebee;
+            color: #c62828;
+        }
+.curso-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.curso-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+    border-color: #122b44; /* Destaca a borda com a cor da  navbar */
+}
+        /* Botões alinhados ao fundo */
+        .curso-card button {
+            background-color: #122b44;
+            color: #fff;
+            border: none;
+            padding: 12px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: auto; /* Empurra o botão para o fim do card */
+            transition: background 0.3s ease;
+        }
+        .curso-card button:hover {
+            background-color: #1b3e61;
+        }
+    </style>
+</head>
+<body>
+  
+  <nav class="navbar">
+    <ul>
+      <li><a href="pagina inicial.html">Início</a></li>
+      <li><a href="empregos.html">Empregos</a></li>
+      <li><a href="cursos.html" >Cursos</a></li>
+      <li><a href="perfil.html">Meu Perfil</a></li>
+    </ul>
+  </nav>
+
+  <section class="cursos-container">
+    <h1>Cursos Disponíveis</h1>
+    <div class="cursos-grid">
+
+      <div class="curso-card gratuito">
+        <h2>Marketing Digital</h2>
+        <p>Aprenda estratégias de marketing online a partir da sua casa e conquiste clientes.</p>
+        <span class="tag">Gratuito</span>
+        <span class="info-extra"><strong>150 participantes ativos</strong></span>
+        <button>Aderir Agora</button>
+      </div>
+
+      <div class="curso-card gratuito">
+        <h2>Introdução à Programação</h2>
+        <p>Curso básico de lógica e programação com exercícios práticos em Python e JavaScript.</p>
+        <span class="tag">Gratuito</span>
+        <span class="info-extra"><strong>Escola de Tecnologia h2n</strong></span>
+        <button>Inscrever-se Agora</button>
+      </div>
+
+      <div class="curso-card pago">
+        <h2>Gestão de Projetos</h2>
+        <p>Aprenda metodologias ágeis (Scrum) e tradicionais para gerenciar projetos eficientes.</p>
+        <span class="tag">Pago</span>
+        <span class="info-extra"><strong>Investimento: 2.500 MT</strong></span>
+        <button>Ver Detalhes</button>
+      </div>
+
+      <div class="curso-card pago">
+        <h2>Excel Avançado</h2>
+        <p>Domine fórmulas complexas, tabelas dinâmicas, macros e dashboards profissionais.</p>
+        <span class="tag">Pago</span>
+        <span class="info-extra"><strong>Duração: 4 Semanas</strong></span>
+       <a href="Excel Avancado.html">
+        <button style="width: 100%;">Ver Detalhes</button>
+    </a>
+      </div>
+
+      <div class="curso-card gratuito">
+        <h2>Informática Básica</h2>
+        <p>Conceitos fundamentais de hardware, Windows e Pacote Office para o dia a dia.</p>
+        <span class="tag">Gratuito</span>
+        <span class="info-extra"><strong>Escola Sec. do Triângulo</strong></span>
+        <button>Ver Mais</button>
+      </div>
+
+      <div class="curso-card gratuito">
+        <h2>Inglês Básico</h2>
+        <p>Aprenda a língua inglesa que será crucial na sua caminhada profissional e viagens.</p>
+        <span class="tag">Gratuito</span>
+        <span class="info-extra"><strong>IGL Nacala</strong></span>
+        <button>Ver Mais</button>
+      </div>
+
+      <div class="curso-card pago">
+        <h2>Mecânica Industrial</h2>
+        <p>Formação técnica em manutenção de máquinas e motores industriais de alta performance.</p>
+        <span class="tag">Pago</span>
+        <span class="info-extra"><strong>Instituição: IFPLC</strong></span>
+        <button>Ver Mais</button>
+      </div>
+
+      <div class="curso-card pago">
+        <h2>Eletricidade Industrial</h2>
+        <p>Aprenda instalações elétricas de alta tensão e comandos industriais qualificados.</p>
+        <span class="tag">Pago</span>
+        <span class="info-extra"><strong>Certificação: CPN</strong></span>
+        <button>Ver Mais</button>
+      </div>
+
+
+    </div>
+  </section>
+</body>
+</html>
